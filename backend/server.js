@@ -19,10 +19,15 @@ app.use(cors());
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self'; font-src 'self' https://fonts.gstatic.com;"
+    "default-src 'self'; " +
+    "font-src 'self' https://fonts.gstatic.com; " +
+    "style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; " +
+    "script-src 'self'; " +
+    "img-src 'self' data:;"
   );
   next();
 });
+
 
 
 app.use(bodyParser.json());
