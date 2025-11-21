@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { api } from '../services/api';
 
 export default function Signin() {
   const [showPassword, setShowPassword] = useState(false)
@@ -13,11 +14,7 @@ export default function Signin() {
     setError(false)
 
     try {
-      const response = await fetch('http://localhost:3000/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      })
+      const response = await api.login(email, password);
 
       if (response.ok) {
         const data = await response.json()

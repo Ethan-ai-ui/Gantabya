@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { api } from '../services/api';
 
 export default function SPSignup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -43,23 +44,18 @@ export default function SPSignup() {
       return;
     }
     try {
-      const response = await fetch('http://localhost:3000/signup-service-provider', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-          fullName: formData.fullName,
-          role: 'service_provider',
-          extra: {
-            companyName: formData.companyName,
-            phone: formData.phone,
-            citizenshipNumber: formData.citizenshipNumber,
-            contactNumber: formData.contactNumber,
-            servicesOffered: formData.servicesOffered
-          }
-        })
-      });
+      const response = await api.signupServiceProvider(
+        formData.email,
+        formData.password,
+        formData.fullName,
+        {
+          companyName: formData.companyName,
+          phone: formData.phone,
+          citizenshipNumber: formData.citizenshipNumber,
+          contactNumber: formData.contactNumber,
+          servicesOffered: formData.servicesOffered
+        }
+      );
       if (response.ok) {
         const data = await response.json()
         localStorage.setItem('isLoggedIn', 'true')

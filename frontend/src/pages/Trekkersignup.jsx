@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { api } from '../services/api';
 
 export default function Trekkersignup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,16 +22,7 @@ export default function Trekkersignup() {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          password,
-          fullName,
-          role: 'trekker',
-        }),
-      });
+      const response = await api.signup(email, password, fullName, 'trekker');
 
       if (response.ok) {
         const data = await response.json()
