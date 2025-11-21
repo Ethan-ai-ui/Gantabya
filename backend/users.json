@@ -1,0 +1,46 @@
+[
+  {
+    "email": "user1@example.com",
+    "password": "password123"
+  },
+  {
+    "email": "user2@example.com",
+    "password": "mypassword"
+  },
+  {
+    "email": "prithakkoirala44@gmail.com",
+    "password": "12345",
+    "fullName": "prithak",
+    "role": "trekker"
+  },
+  {
+    "email": "ppk@gmail.com",
+    "password": "koko",
+    "fullName": "pratyush koirala",
+    "role": "trekker"
+  },
+  {
+    "email": "kk@gmail.com",
+    "password": "lol",
+    "fullName": "kk",
+    "role": "trekker"
+  },
+  {
+    "email": "johndoe@gmail.com",
+    "password": "12345",
+    "fullName": "john doe",
+    "role": "trekker"
+  },
+  {
+    "email": "prodiver@gmail.com",
+    "password": "provider",
+    "fullName": "khokho",
+    "role": "service_provider",
+    "companyName": "khokho",
+    "citizenshipNumber": "124235",
+    "contactNumber": "934726920",
+    "servicesOffered": [
+      "Trekking Guide"
+    ]
+  }
+]
